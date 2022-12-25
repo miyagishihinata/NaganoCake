@@ -1,29 +1,28 @@
 <div class="container">
   <div class="row">
+    <h5 class="col-md-2 offset-md-2 text-center mt-5 mb-5" style="background-color:#dcdcdc;">管理者ログイン</h5>
+  </div>
 
-
-    <h5 style="background-color:#dcdcdc;">管理者ログイン</h5>
-
+  <div class="row">
     <div class="px-3 mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-       <div class="field">
-         <label for="admin_email">メールアドレス</label>
-         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+       <div class="form-group row">
+         <label class="col-md-4" for="admin_email">メールアドレス</label>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-8" %>
        </div>
 
-       <div class="field">
-          <label for="admin_password">パスワード</label>
-          <%= f.password_field :password, autocomplete: "current-password" %>
+       <div class="form-group row">
+          <label class="col-md-4" for="admin_password">パスワード</label>
+          <%= f.password_field :password, autocomplete: "current-password", class: "col-md-8" %>
         </div>
 
 
-        <div class="actions">
-         <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <div class="form-group row">
+         <%= f.submit "ログイン", class: "btn btn-primary col-md-3 offset-md-4 mt-3" %>
         </div>
     <% end %>
 
     <%= render "admin/shared/links" %>
-
     </div>
   </div>
 </div>
