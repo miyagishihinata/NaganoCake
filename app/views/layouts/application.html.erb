@@ -23,7 +23,8 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
-              
+
+
             <% if admin_signed_in? %>
               <li>
                 <%= link_to "商品一覧", class:"nav-link text_dark" %>
@@ -45,26 +46,33 @@
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link text_dark" %>
               </li>
 
+
             <% else %>
-
               <li>
-                <%= link_to "About",  class:"nav-link text_dark" %>
-
+                <%= link_to  class:"nav-link text_dark" do %>
+                  <button type="button" class="btn btn-outline-secondary">About</button>
+                <% end %>
               </li>
 
               <li>
-                <%= link_to  "商品一覧", class:"nav-link text_dark" %>
+                <%= link_to  class:"nav-link text_dark" do %>
+                  <button type="button" class="btn btn-outline-secondary">商品一覧</button>
+                <% end %>
               </li>
 
               <li>
-                <%=link_to  "新規登録", class:"nav-link text_dark" %>
+                <%=link_to  class:"nav-link text_dark" do %>
+                  <button type="button" class="btn btn-outline-secondary">新規登録</button>
+                <% end %>
               </li>
 
               <li>
-                <%= link_to "ログイン",  class:"nav-link text_dark"  %>
+                <%= link_to  class:"nav-link text_dark" do %>
+                  <button type="button" class="btn btn-outline-secondary">ログイン</button>
+                <% end %>
               </li>
             <% end %>
-            
+
             </ul>
           </div>
         </div>
