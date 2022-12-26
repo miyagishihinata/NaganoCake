@@ -23,67 +23,52 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
+              
             <% if admin_signed_in? %>
               <li>
-                <%= link_to user_path(current_user.id), class:"nav-link text_dark" do %>
-                  <i class="fas fa-home"></i>商品一覧
-                <% end %>
+                <%= link_to "商品一覧", class:"nav-link text_dark" %>
               </li>
 
               <li>
-                <%= link_to admins_path, class:"nav-link text_dark" do %>
-                  <i class="fas fa-users"></i>会員一覧
-                <% end %>
+                <%= link_to "会員一覧", admins_path, class:"nav-link text_dark" %>
               </li>
 
               <li>
-                <%=link_to items_path, class:"nav-link text_dark" do %>
-                  <i class="fas fa-book-open"></i>注文履歴一覧
-                <% end %>
-              </li>
-              
-              <li>
-                <%=link_to genres_path, class:"nav-link text_dark" do %>
-                  <i class="fas fa-book-open"></i>ジャンル一覧
-                <% end %>
+                <%=link_to "注文履歴一覧", items_path, class:"nav-link text_dark" %>
               </li>
 
               <li>
-                <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text_dark" do %>
-                  <i class="fas fa-sign-out-alt"></i>ログアウト
-                <% end %>
+                <%=link_to "ジャンル一覧", genres_path, class:"nav-link text_dark" %>
+              </li>
+
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link text_dark" %>
               </li>
 
             <% else %>
 
               <li>
-                <%= link_to about_path, class:"nav-link text_dark" do %>
-                  <i class="fas fa-link"></i>About
-                <% end %>
-              </li>
-              
-              <li>
-                <%= link_to  class:"nav-link text_dark" do %>
-                  <i class="fas fa-home"></i>商品一覧
-                <% end %>
+                <%= link_to "About",  class:"nav-link text_dark" %>
+
               </li>
 
               <li>
-                <%=link_to new_user_registration_path, class:"nav-link text_dark" do %>
-                  <i class="fas fa-user-plus"></i>新規登録
-                <% end %>
+                <%= link_to  "商品一覧", class:"nav-link text_dark" %>
               </li>
 
               <li>
-                <%= link_to new_user_session_path, class:"nav-link text_dark" do %>
-                  <i class="fas fa-sign-in-alt"></i>ログイン
-                <% end %>
+                <%=link_to  "新規登録", class:"nav-link text_dark" %>
+              </li>
+
+              <li>
+                <%= link_to "ログイン",  class:"nav-link text_dark"  %>
               </li>
             <% end %>
+            
             </ul>
           </div>
         </div>
-      
+
 
       </nav>
     </header>
