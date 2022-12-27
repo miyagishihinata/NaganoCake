@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root to: "homes#top"
-  get 'about' => 'homes#about'
+  root to: "public/homes#top"
+  get 'about' => 'public/homes#about'
+  resources :admins, only: [:new, :create, :index, :show, :edit, :destroy, :update]
+
 
   # 管理者用
   # URL /admin/sign_in ...
