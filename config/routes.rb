@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   root to: "public/homes#top"
   get 'about' => 'public/homes#about'
-  resources :admins, only: [:new, :create, :index, :show, :edit, :destroy, :update]
+  namespace :admin do
+    resources :items, only: [:new, :create, :index, :show, :edit, :update]
+    get '/' => 'homes#top'
+  end
+
+  scope module: :public do
+    resources :items, only: [:index, :show]
+
+  end
+
 
 
   # 管理者用

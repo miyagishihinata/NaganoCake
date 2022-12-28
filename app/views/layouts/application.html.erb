@@ -30,7 +30,7 @@
 
             <% if admin_signed_in? %>
               <li>
-                <%= link_to class:"nav-link text_dark" do %>
+                <%= link_to  class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">商品一覧</button>
                 <% end %>
               </li>
@@ -68,7 +68,7 @@
               </li>
 
               <li>
-                <%= link_to  class:"nav-link text_dark" do %>
+                <%= link_to items_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">商品一覧</button>
                 <% end %>
               </li>
@@ -94,7 +94,7 @@
               </li>
 
               <li>
-                <%= link_to  class:"nav-link text_dark" do %>
+                <%= link_to items_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">商品一覧</button>
                 <% end %>
               </li>
@@ -118,7 +118,7 @@
       </nav>
     </header>
     <hr color="black">
-    
+
     <main>
     <%= yield %>
     </main>
