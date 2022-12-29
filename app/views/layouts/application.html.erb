@@ -30,25 +30,25 @@
 
             <% if admin_signed_in? %>
               <li>
-                <%= link_to  class:"nav-link text_dark" do %>
+                <%= link_to admin_items_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">商品一覧</button>
                 <% end %>
               </li>
 
               <li>
-                <%= link_to about_path, class:"nav-link text_dark" do %>
+                <%= link_to admin_customers_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">会員一覧</button>
                 <% end %>
               </li>
 
               <li>
-                <%=link_to about_path, class:"nav-link text_dark" do %>
+                <%=link_to admin_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">注文履歴一覧</button>
                 <% end %>
               </li>
 
               <li>
-                <%=link_to about_path, class:"nav-link text_dark" do %>
+                <%=link_to admin_genres_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">ジャンル一覧</button>
                 <% end %>
               </li>
@@ -62,7 +62,7 @@
 
             <% elsif customer_signed_in? %>
               <li>
-                <%= link_to  class:"nav-link text_dark" do %>
+                <%= link_to customer_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">マイページ</button>
                 <% end %>
               </li>
@@ -74,13 +74,13 @@
               </li>
 
               <li>
-                <%=link_to class:"nav-link text_dark" do %>
+                <%=link_to cart_item_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">カート</button>
                 <% end %>
               </li>
 
               <li>
-                <%= link_to  destroy_public_session_path, method: :delete, class:"nav-link text_dark" do %>
+                <%= link_to destroy_public_session_path, method: :delete, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">ログアウト</button>
                 <% end %>
               </li>
