@@ -9,7 +9,7 @@
   <div class="row">
     <div class="px-3 mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
-    <%= form_with model: @item do |f| %>
+    <% @items.each do |item| %>
 
       <div class="form-group row">
 
@@ -40,7 +40,9 @@
 
 
       </div>
+    <% end %>
 
+    <%= link_to new_admin_item_path do %>
       <div class="form-group row">
         <%= f.submit '編集する', class: "btn btn-success col-md-3 offset-md-4 mt-3" %>
       </div>
