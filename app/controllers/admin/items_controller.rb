@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def new
@@ -22,6 +22,8 @@ class Admin::ItemsController < ApplicationController
 
   def update
   end
+  
+  private
   
   def list_params
     params.require(:item).permit(:name, :introduction, :price, :is_active)

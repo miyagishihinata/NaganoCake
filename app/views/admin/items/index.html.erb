@@ -27,22 +27,24 @@
     </thead>
 
     <tbody>
-    <% @Items.each do |item| %>
+    <% @items.each do |item| %>
       <tr>
         <td>
-
+         <%= item.id %>
         </td>
         <td>
-
+          <%= link_to admin_item_path(item.id) do %>
+           <%= item.name %>
+          <% end %>
         </td>
         <td>
-
+         <%= item.price %>
         </td>
         <td>
-
+         <%= item.genre_id %>
         </td>
         <td>
-
+          <%= item.is_active %>
         </td>
       </tr>
 
@@ -50,6 +52,11 @@
     <% end %>
     </tbody>
   </table>
+
+  <div class="px-5 mx-auto col-10 col-sm-9">
+    <%= paginate @items %>
+  </div>
+
 </div>
 
 
