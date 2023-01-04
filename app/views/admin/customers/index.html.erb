@@ -16,27 +16,22 @@
     </thead>
 
     <tbody>
-
+    <% @customers.each do |customer| %>
       <tr>
         <td>
-
+         <%= customer.id %>
         </td>
         <td>
-
+         <%= customer.name %>
         </td>
         <td>
-
+         <%= customer.email %>
         </td>
         <td>
-
-        </td>
-        <td>
-
+         <%= customer.s_deleted %>
         </td>
       </tr>
-
-
-
+    <% end %>
     </tbody>
   </table>
 </div>
