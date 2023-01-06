@@ -16,54 +16,51 @@
 
       <div class="form-group row">
         <label class="col-md-3">会員ID</label>
-
+        <%= @customer.id %>
       </div>
 
       <div class="form-group row">
         <label class="col-md-3">氏名</label>
-
+        <%= @customer.last_name %> <%= @customer.first_name %>
       </div>
 
       <div class="form-group row">
         <label class="col-md-3">フリガナ</label>
-
+        <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
       </div>
 
       <div class="form-group row">
         <label class="col-md-3">郵便番号</label>
-
+        <%= @customer.postal_code %>
       </div>
 
       <div class="form-group row">
         <label class="col-md-3">住所</label>
-
+        <%= @customer.address %>
       </div>
 
       <div class="form-group row">
         <label class="col-md-3">電話番号</label>
-
+        <%= @customer.telephone_number %>
       </div>
 
       <div class="form-group row">
         <label class="col-md-3">メールアドレス</label>
-
+        <%= @customer.email %>
       </div>
 
 
       <div class="form-group row">
         <label class="col-md-3">会員ステータス</label>
 
-
       </div>
 
 
-    <%= link_to edit_admin_customer_path do %>
+    
       <div class="form-group row">
-        <%= f.submit '編集する', class: "btn btn-success col-md-3 offset-md-4 mt-3" %>
+        <%= link_to '編集する', edit_admin_customer_path(customer.id), class: "btn btn-success col-md-3 offset-md-4 mt-3" %>
+        <%= link_to '注文履歴一覧を見る', admin_path, class: "btn btn-primary col-md-3 offset-md-4 mt-3" %>
       </div>
-
-    <% end %>
-
 
     </div>
   </div>

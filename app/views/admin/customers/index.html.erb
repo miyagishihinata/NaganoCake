@@ -1,5 +1,5 @@
 <h5 class="col-md-1 offset-md-2 text-center mt-4 mb-4" style="background-color:#dcdcdc;">
-  商品一覧
+  会員一覧
 </h5>
 
 
@@ -22,7 +22,7 @@
          <%= customer.id %>
         </td>
         <td>
-         <%= customer.name %>
+         <%= customer.last_name %><%= customer.first_name %>
         </td>
         <td>
          <%= customer.email %>
@@ -34,4 +34,5 @@
     <% end %>
     </tbody>
   </table>
+  <%= paginate @customers %>
 </div>
