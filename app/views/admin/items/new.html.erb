@@ -9,7 +9,7 @@
   <div class="row">
     <div class="px-3 mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
-    <%= form_with model: @item do |f| %>
+    <%= form_with model: @item, url:admin_items_path do |f| %>
 
       <div class="form-group row">
         <label class="col-md-3">商品画像</label>
@@ -28,9 +28,7 @@
 
       <div class="form-group row">
         <label class="col-md-3">ジャンル</label>
-        <select class="form-select col-md-8" aria-label="Default select example">
-          <option selected>-- 選択してください --</option>
-        </select>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択して下さい--" %>
       </div>
 
       <div class="form-group row">
@@ -42,12 +40,12 @@
         <label class="col-md-3">販売ステータス</label>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <%= f.radio_button :is_active, true, checked: true %>
             <label class="form-check-label" for="inlineRadio1">販売中</label>
           </div>
 
          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <%= f.radio_button :is_active, false %>
             <label class="form-check-label" for="inlineRadio2">販売停止中</label>
          </div>
       </div>
