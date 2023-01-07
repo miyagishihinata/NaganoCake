@@ -1,5 +1,5 @@
-<h5 class="col-md-1 offset-md-2 text-center mt-4 mb-4" style="background-color:#dcdcdc;">
-  会員一覧
+<h5 class="offset-md-2 text-center mt-4 mb-4" style="background-color:#dcdcdc;">
+  &emsp;会員一覧&emsp;
 </h5>
 
 
@@ -22,13 +22,19 @@
          <%= customer.id %>
         </td>
         <td>
-         <%= customer.last_name %><%= customer.first_name %>
+         <%= link_to admin_customer_path(customer.id) do %>
+           <%= customer.last_name %><%= customer.first_name %>
+         <% end %>
         </td>
         <td>
          <%= customer.email %>
         </td>
         <td>
-         <%= customer.s_deleted %>
+         <% if customer.is_deleted == true %>
+          有効
+         <% else %>
+          退会
+         <% end %>
         </td>
       </tr>
     <% end %>
