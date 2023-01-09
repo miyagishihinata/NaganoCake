@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :edit, :show, :update]
     resources :orders, only: [:show, :update]
     get '/' => 'homes#top'
   end
@@ -26,9 +26,12 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :items, only: [:index, :show]
 
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
-    resources :customers, only: [:show, :edit, :update]
+
 
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :cart_items, only: [:index, :update, :destroy, :create]
