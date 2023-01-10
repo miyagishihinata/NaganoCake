@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :items, only: [:index, :show]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
     get 'customers/my_page' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
@@ -40,7 +41,6 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :create, :index, :show]
 
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
 
