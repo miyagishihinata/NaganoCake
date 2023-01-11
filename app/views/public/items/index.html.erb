@@ -1,19 +1,21 @@
 <div class="container">
   <div class="form-inline">
     <h3 class="mt-4 mb-2">商品一覧</h3>
-    <h5 class="mt-4 mb-2">(全 件)</h5>
+    <h5 class="mt-4 mb-2">(全<%= @items.count %>件)</h5>
   </div>
 
 
   <div class="row">
-    <div class="px-3 mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+    <div class="col-12 flex-wrap">
     <% @items.each do |item| %>
       <div class="form-group row">
-      <%= image_tag item.get_image(200,200) %>
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.get_image(200,200) %>
+      <% end %>
       </div>
 
       <div class="form-group row">
-        <label class="col-md-3">商品名</label>
+        <label class="mr-4">商品名</label>
         <%= item.name %>
       </div>
 
