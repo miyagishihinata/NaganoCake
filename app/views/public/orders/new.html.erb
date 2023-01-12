@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h5 class=" offset-md-2 text-center mt-4 mb-4 ml-5" style="background-color:#dcdcdc;">
+      &emsp;注文情報入力&emsp;
+    </h5>
+  </div>
+
+  <%= form_with model: @order, url:orders_path do |f| %>
+
+        <h5>支払方法</h5>
+
+        <div class="form-group row ml-5">
+          <div class="form-check form-check-inline">
+            <%= f.radio_button :payment_method, true, checked: true %>
+            <label class="form-check-label" for="inlineRadio1">クレジットカード</label>
+          </div>
+        </div>
+
+       <div class="form-group row ml-5">
+         <div class="form-check form-check-inline">
+            <%= f.radio_button :payment_method, false %>
+            <label class="form-check-label" for="inlineRadio2">銀行振込</label>
+
+         </div>
+       </div>
+
+       <h5>お届け先</h5>
+  <% end %>
+
+
+</div>
