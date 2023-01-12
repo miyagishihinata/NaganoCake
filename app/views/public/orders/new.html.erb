@@ -9,22 +9,48 @@
 
         <h5>支払方法</h5>
 
-        <div class="form-group row ml-5">
+        <div class="form-group row ml-4">
           <div class="form-check form-check-inline">
             <%= f.radio_button :payment_method, true, checked: true %>
             <label class="form-check-label" for="inlineRadio1">クレジットカード</label>
           </div>
         </div>
 
-       <div class="form-group row ml-5">
+       <div class="form-group row ml-4">
          <div class="form-check form-check-inline">
-            <%= f.radio_button :payment_method, false %>
+            <%= f.radio_button :payment_method, true %>
             <label class="form-check-label" for="inlineRadio2">銀行振込</label>
-
          </div>
        </div>
 
        <h5>お届け先</h5>
+
+       <div class="ml-4">
+         <div class="form-check form-check-inline">
+           <%= f.radio_button :address, true, checked: true %>
+           <label class="form-check-label" for="inlineRadio1">ご自身の住所</label>
+         </div>
+       </div>
+
+       <div class="form-group ml-5">
+         〒<%= @customer.postal_code %> <%= @customer.address %><br>
+          <%= @customer.last_name %><%= @customer.first_name %>
+       </div>
+
+       <div class="form-group row ml-4">
+         <div class="form-check form-check-inline">
+           <%= f.radio_button :address, true %>
+           <label class="form-check-label" for="inlineRadio2">登録済住所から選択</label>
+         </div>
+       </div>
+
+       <div class="form-group row ml-4">
+         <div class="form-check form-check-inline">
+           <%= f.radio_button :address, true %>
+           <label class="form-check-label" for="inlineRadio3">新しいお届け先</label>
+         </div>
+       </div>
+
   <% end %>
 
 

@@ -5,11 +5,12 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @customer = current_customer
   end
-  
+
   def comfirm
   end
-  
+
   def complete
   end
 
@@ -26,7 +27,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method)
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :postal_code, :last_name, :first_name)
   end
 
 end
