@@ -1,58 +1,68 @@
 <div class="container">
   <div class="row">
-    <h5 class=" offset-md-2 text-center mt-4 mb-4 ml-5" style="background-color:#dcdcdc;">
+    <h5 class="text-center mt-4 mb-4 ml-5" style="background-color:#dcdcdc;">
       &emsp;注文情報確認&emsp;
     </h5>
   </div>
 </div>
 
+
 <div class="container">
-  <div class="col-10 col-sm-10">
-    <table class="table table-bordered mt-3">
+  <div class="row">
+    <div class="col-8">
 
-    <thead style="background-color:#f5f5f5;">
-      <tr>
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
-      </tr>
-    </thead>
+      <table class="table table-bordered mt-3">
 
-    <tbody>
-    <%# @cart_items.each do |cart_item| %>
-      <tr>
-        <td>
-          <%#= image_tag cart_item.get_image(50,50) %>
-          <%#= cart_item.name %>
-        </td>
-        <td>
-          <%#= cart_item.add_tax_price.to_s(:delimited) %>
-        </td>
-        <td>
-          <%#= link_to "変更", cart_item_path(cart_item.id), class: "btn btn-success col-md-3" %>
-        </td>
-        <td>
-          <%#= cart_item.add_tax_price.to_s(:delimited) %>
-        </td>
-        <td>
-          <%#= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger col-md-3 ml-3" %>
-        </td>
-      </tr>
-    <%# end %>
-    </tbody>
-    </table>
+        <thead style="background-color:#f5f5f5;">
+          <tr>
+           <th>商品名</th>
+           <th>単価(税込)</th>
+           <th>数量</th>
+           <th>小計</th>
+           <th></th>
+          </tr>
+        </thead>
 
-           <label class="col-md-3">送料</label>
-             <%#= @order.shipping_cost %><br>
+        <tbody>
+         <%# @cart_items.each do |cart_item| %>
+          <tr>
+           <td>
+            <%#= image_tag cart_item.get_image(50,50) %>
+            <%#= cart_item.name %>
+           </td>
+           <td>
+            <%#= cart_item.add_tax_price.to_s(:delimited) %>
+           </td>
+           <td>
+            <%#= link_to "変更", cart_item_path(cart_item.id), class: "btn btn-success col-md-3" %>
+           </td>
+           <td>
+            <%#= cart_item.add_tax_price.to_s(:delimited) %>
+           </td>
+           <td>
+            <%#= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger col-md-3 ml-3" %>
+           </td>
+          </tr>
+         <%# end %>
+        </tbody>
 
-           <label class="col-md-3">商品合計</label>
-             <%#= @order. %><br>
+      </table>
+    </div>
 
-           <label class="col-md-3">請求金額</label>
-             <%#= @order.total_payment %>
+    <div class="col-4 mt-3">
+      <label class="col-md-4">送料</label><br>
+        <%#= @order.shipping_cost %>
 
+      <label class="col-md-4">商品合計</label><br>
+        <%#= @order. %>
+
+      <label class="col-md-4">請求金額</label><br>
+        <%#= @order.total_payment %>
+    </div>
 
   </div>
+</div>
+<div class="ml-5">
+<h5>支払方法</h5>
+<h5>お届け先</h5>
 </div>
