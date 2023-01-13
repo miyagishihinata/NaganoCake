@@ -6,10 +6,13 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
-    @addresses = Address.all
   end
 
   def comfirm
+    @order = Order.new(order_params)
+    if @order.invalid? 
+       render :new
+    end
   end
 
   def complete
