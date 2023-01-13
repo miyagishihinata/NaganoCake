@@ -9,10 +9,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
-    @order = Order.new(order_params)
-    if @order.invalid? 
-       render :new
-    end
+    #@order = Order.new(order_params)
+    #if @#order.invalid?
+       #render :new
+    #end
   end
 
   def complete
