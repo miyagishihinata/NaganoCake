@@ -9,7 +9,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-10">
 
       <table class="table table-bordered mt-3">
 
@@ -19,7 +19,7 @@
            <th>単価(税込)</th>
            <th>数量</th>
            <th>小計</th>
-           <th></th>
+
           </tr>
         </thead>
 
@@ -39,30 +39,56 @@
            <td>
             <%#= cart_item.add_tax_price.to_s(:delimited) %>
            </td>
-           <td>
-            <%#= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger col-md-3 ml-3" %>
-           </td>
           </tr>
          <%# end %>
         </tbody>
-
       </table>
+
     </div>
-
-    <div class="col-4 mt-3">
-      <label class="col-md-4">送料</label><br>
-        <%#= @order.shipping_cost %>
-
-      <label class="col-md-4">商品合計</label><br>
-        <%#= @order. %>
-
-      <label class="col-md-4">請求金額</label><br>
-        <%#= @order.total_payment %>
-    </div>
-
   </div>
+
+  <div class="col-5 mt-3">
+    <div class="row">
+      <label class="col-md-4">送料</label>
+       <%#= @order.shipping_cost %>
+    </div>
+
+    <div class="row">
+       <label class="col-md-4">商品合計</label>
+        <%#= @order. %>
+    </div>
+
+    <div class="row">
+      <label class="col-md-4">請求金額</label>
+       <%#= @order.total_payment %>
+    </div>
+  </div>
+
+
+  <div class="col-10 mt-5">
+    <div class="form-group row mb-5">
+      <h5 class="font-weight-bold mr-4">支払方法</h5>
+        <h5><%#= order.payment_method %></h5>
+    </div>
+
+    <div class="form-group row">
+      <h5 class="font-weight-bold mr-4">お届け先</h5>
+        <h5>
+          〒<%#= customer.postal_code %> <%#= customer.address %><br>
+            <%#= customer.last_name %><%#= customer.first_name %>
+        </h5>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <%= form_with model: @order, url:orders_path do |f| %>
+      <%= f.submit '注文を確定する', class: "btn btn-success col-md-2 offset-md-5" %>
+    <% end %>
+  </div>
+
 </div>
-<div class="ml-5">
-<h5>支払方法</h5>
-<h5>お届け先</h5>
-</div>
+
+
+
+
+
