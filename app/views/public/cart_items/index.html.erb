@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-8 text-right">
-      <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class: "btn btn-danger col-md-3 ml-3 mt-4", "data-confirm" => "本当に削除しますか？" %>
+      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger col-md-3 ml-3 mt-4", "data-confirm" => "本当に削除しますか？" %>
     </div>
   </div>
 </div>
@@ -65,7 +65,7 @@
 
     <div class="col-2">
       <% @cart_items.each do |cart_item| %>
-          <h5 class="mt-3 ml-4"><%= @total += cart_item.subtotal %>円</h5>
+          <h5 class="ml-4 mt-3"><%= @total += cart_item.subtotal %>円</h5>
       <% end %>
     </div>
   </div>
