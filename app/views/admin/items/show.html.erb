@@ -34,7 +34,7 @@
         (税抜価格)
         </label>
 
-        <%= @item.add_tax_price.to_s(:delimited) %>
+        <%= cart_item.item.with_tax_price%>
         (<%= @item.price %>)円
       </div>
 
