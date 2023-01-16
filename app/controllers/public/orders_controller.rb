@@ -5,6 +5,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @addresses = Address.all
     @customer = current_customer
   end
 
