@@ -61,6 +61,9 @@
 
 
             <% elsif customer_signed_in? %>
+              <div class="mt-3 mr-5">
+                ようこそ、<%= current_customer.last_name %>さん！
+              </div>
               <li>
                 <%= link_to customers_my_page_path, class:"nav-link text_dark" do %>
                   <button type="button" class="btn btn-outline-secondary mr-5">マイページ</button>
