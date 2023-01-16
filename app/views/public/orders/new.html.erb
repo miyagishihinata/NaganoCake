@@ -11,14 +11,14 @@
 
         <div class="form-group row ml-4">
           <div class="form-check form-check-inline">
-            <%= f.radio_button :payment_method, true, checked: true %>
+            <%= f.radio_button :payment_method, 0, checked: true %>
             <label class="form-check-label" for="inlineRadio1">クレジットカード</label>
           </div>
         </div>
 
        <div class="form-group row ml-4">
          <div class="form-check form-check-inline">
-            <%= f.radio_button :payment_method, true %>
+            <%= f.radio_button :payment_method, 1 %>
             <label class="form-check-label" for="inlineRadio2">銀行振込</label>
          </div>
        </div>
@@ -27,7 +27,7 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :address, true, checked: true %>
+           <%= f.radio_button :address, true, checked: 0 %>
            <label class="form-check-label" for="inlineRadio1">ご自身の住所</label>
          </div>
        </div>
@@ -39,7 +39,7 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :address, true %>
+           <%= f.radio_button :address, 1 %>
            <label class="form-check-label" for="inlineRadio2">登録済住所から選択</label>
          </div>
        </div>
@@ -50,7 +50,7 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :address, true %>
+           <%= f.radio_button :address, 2 %>
            <label class="form-check-label" for="inlineRadio3">新しいお届け先</label>
          </div>
        </div>
