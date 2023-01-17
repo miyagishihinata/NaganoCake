@@ -10,10 +10,17 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
-    #@order = Order.new(order_params)
-    #if @#order.invalid?
-       #render :new
-    #end
+    @order = Order.new(order_params)
+    
+    if params[:order][:select_address] == "0"
+       @order.postal_code = current_customer.postal_code
+       @order.address = current_customer.address
+       @order.name = current_customer.last_name + current_customer.first_name
+       binding.pry
+       
+    elsif params[:order][:select_address] == "1"
+          @order.postal_code = .postal_code
+    end
   end
 
   def complete

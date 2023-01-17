@@ -5,7 +5,7 @@
     </h5>
   </div>
 
-  <%= form_with model: @order, url:orders_path do |f| %>
+  <%= form_with model: @order, url:orders_comfirm_path do |f| %>
 
         <h5>支払方法</h5>
 
@@ -25,7 +25,7 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :address, Order.addresses.key(0) %>
+           <%= f.radio_button :select_address, 0 %>
            <%= f.label :address_my_adderess, "ご自身の住所", class: "mb-1" %>
          </div>
        </div>
@@ -37,7 +37,7 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :address, Order.addresses.key(1) %>
+           <%= f.radio_button :select_address, 1 %>
            <%= f.label :address_registered_address, "登録済住所から選択", class: "mb-1" %>
          </div>
        </div>
@@ -49,13 +49,13 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :address, Order.addresses.key(2) %>
+           <%= f.radio_button :select_address, 2 %>
            <%= f.label :address_new_address, "新しいお届け先", class: "mb-1" %>
          </div>
        </div>
 
        <div class="form-group ml-5">
-         <%= form_with model: @address, url:addresses_path do |f| %>
+
 
            <label class="col-md-3">郵便番号(ハイフンなし)</label>
              <%= f.text_field :postal_code, class:"mb-2", placeholder: "0000000" %><br>
@@ -66,7 +66,7 @@
            <label class="col-md-3">宛名</label>
              <%= f.text_field :name, class:"mb-2", placeholder: "令和道子" %>
 
-         <% end %>
+
        </div>
 
        <%= f.submit '確認画面へ進む', class: "btn btn-primary col-md-2 offset-md-5" %>
