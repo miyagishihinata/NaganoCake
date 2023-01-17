@@ -5,14 +5,14 @@
     </h5>
   </div>
 
-  <%= form_with model: @order, url:orders_comfirm_path do |f| %>
+  <%= form_with model: @order, url:orders_confirm_path do |f| %>
 
         <h5>支払方法</h5>
 
         <div class="form-group row ml-4">
           <div class="form-check form-check-inline">
             <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-            <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card], class:"mt-" %>
+            <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card], class:"mt-1" %>
           </div>
         </div>
 
@@ -26,7 +26,7 @@
        <div class="ml-4">
          <div class="form-check form-check-inline">
            <%= f.radio_button :select_address, 0 %>
-           <%= f.label :address_my_adderess, "ご自身の住所", class: "mb-1" %>
+           <%= f.label :address, "ご自身の住所", class: "mb-1" %>
          </div>
        </div>
 
@@ -38,19 +38,18 @@
        <div class="ml-4">
          <div class="form-check form-check-inline">
            <%= f.radio_button :select_address, 1 %>
-           <%= f.label :address_registered_address, "登録済住所から選択", class: "mb-1" %>
+           <%= f.label :address, "登録済住所から選択", class: "mb-1" %>
          </div>
        </div>
 
        <div class="form-group ml-5">
-         <%#= f.select :address_id, Address.all, :postal_code, :address, :name %>
          <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
        </div>
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
            <%= f.radio_button :select_address, 2 %>
-           <%= f.label :address_new_address, "新しいお届け先", class: "mb-1" %>
+           <%= f.label :address, "新しいお届け先", class: "mb-1" %>
          </div>
        </div>
 
