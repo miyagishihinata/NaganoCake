@@ -11,6 +11,8 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
+    @cart_items = CartItem.all
+    @total = 0
 
     if params[:order][:select_address] == "0"
        @order.postal_code = current_customer.postal_code
@@ -23,15 +25,6 @@ class Public::OrdersController < ApplicationController
           @order.address = @address.address
           @order.name = @address.name
 
-
-    elsif params[:order][:select_address] == "2"
-          @address = Address.new(address_params)
-          @address.customer_id = current_customer.id
-          @address.save
-          @order.postal_code = @address.postal_code
-          @order.address = @address.address
-          @order.name = @address.name
-          binding.pry
     end
   end
 
@@ -45,13 +38,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+
+    #@order = Order.find(params[:id])
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :postal_code, :last_name, :first_name, :customer_id)
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :postal_code, :last_name, :first_name, :customer_id, :image)
   end
 
 end
