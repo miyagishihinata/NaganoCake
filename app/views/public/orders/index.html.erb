@@ -25,28 +25,30 @@
         </thead>
 
         <tbody>
-         <%# @orders.each do |order| %>
+         <% @orders.each do |order| %>
           <tr>
            <td>
-            <%#= order.created_at.strftime('%Y/%m/%d') %>
+            <%= order.created_at.strftime('%Y/%m/%d') %>
+           </td>
+           <td>
+            〒<%= order.postal_code %><br>
+            <%= order.address %><br>
+            <%= order.name %>
+           </td>
+           <td>
+            <%= order.item.name %>
            </td>
            <td>
             <%#= order. %>
            </td>
            <td>
-            <%#= order. %>
-           </td>
-           <td>
-            <%#= order. %>
-           </td>
-           <td>
-
+            <%= link_to order_path(item.id), class: "btn btn-primary" %>
            </td>
            <td>
 
            </td>
           </tr>
-         <%# end %>
+         <% end %>
         </tbody>
       </table>
 
