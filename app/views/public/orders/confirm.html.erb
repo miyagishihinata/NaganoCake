@@ -50,7 +50,7 @@
   <div class="col-5 mt-3">
     <div class="row">
       <label class="col-md-4">送料</label>
-       800円
+       <%= @order.shipping_cost %>円
     </div>
 
     <div class="row">
@@ -63,7 +63,7 @@
 
     <div class="row">
       <label class="col-md-4">請求金額</label>
-       <% @total += 800 %>
+       <% @total += @order.shipping_cost %>
        <%= @total.to_s(:delimited) %>円
     </div>
   </div>
@@ -83,9 +83,16 @@
   </div>
 
   <div class="mt-5 mb-5">
-    <%= form_with model: @order, url:orders_path do |f| %>
-      <%= f.submit '注文を確定する', class: "btn btn-success col-md-2 offset-md-5" %>
-    <% end %>
+  <%= form_with model: @order, url:orders_path do |f| %>
+    <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+    <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :name, :value => @order.name %>
+    <%= f.hidden_field :shipping_cost, :value => @order.shipping_cost %>
+    <%= f.hidden_field :total_payment, :value => @total %>
+    <%= f.hidden_field :total_payment, :value => @total %> 
+    <%= f.submit '注文を確定する', class: "btn btn-success col-md-2 offset-md-5" %>
+  <% end %>
   </div>
 
 </div>

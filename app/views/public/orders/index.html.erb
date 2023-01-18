@@ -39,7 +39,8 @@
             <%= order.item.name %>
            </td>
            <td>
-            <%#= order. %>
+            <% @total += order.shipping_cost %>
+            <%= @total.to_s(:delimited) %>円
            </td>
            <td>
             <%= link_to order_path(item.id), class: "btn btn-primary" %>
