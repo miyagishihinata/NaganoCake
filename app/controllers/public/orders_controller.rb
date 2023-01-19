@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   def index
     @orders = Order.all
+    @cart_items = CartItem.all
   end
 
   def new
@@ -38,13 +39,14 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.status = 0
     @order.save
-    
+
     @order_detail.save
     redirect_to orders_complete_path
   end
 
   def show
     @order = Order.find(params[:id])
+    @cart_items = CartItem.find(params[:id])
   end
 
   private
