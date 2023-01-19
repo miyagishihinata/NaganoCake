@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @order.shipping_cost = 800
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @total = 0
 
     if params[:order][:select_address] == "0"
@@ -35,18 +35,30 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
     @order.customer_id = current_customer.id
     @order.status = 0
     @order.save
 
-    @order_detail.save
+    @cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = cart_item.order_id
+      @order_detail.itemr_id = cart_item.itemr_id
+      @order_detail.price = cart_item.price
+      @order_detail.amount = cart_item.amount
+      @order_detail.making_status = 0
+
+      @order_detail.save
+    end
     redirect_to orders_complete_path
   end
 
   def show
     @order = Order.find(params[:id])
-    @cart_items = CartItem.find(params[:id])
+    @total = 0
+    @order.order_details.each do |order_detail|
+      @total = @total + order_detail.amount*order_detail.price
+    end
   end
 
   private

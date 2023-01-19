@@ -35,7 +35,7 @@
 
         <div class="row mb-1">
           <label class="col-md-3 ml-2">商品合計</label>
-
+           <%= @total %>
         </div>
         <div class="row mb-1">
           <label class="col-md-3 ml-2">配送料</label>
@@ -61,23 +61,23 @@
     </thead>
 
     <tbody>
-    <%# @orders.each do |order| %>
+    <% @order.order_details.each do |order_detail| %>
       <tr>
        <td>
-
+        <%= order_detail.item.name %>
        </td>
        <td>
-
+        <%= order_detail.price %>
        </td>
        <td>
-
+        <%= order_detail.amount %>
        </td>
        <td>
-
+        <%= order_detail.amount*order_detail.price %>
        </td>
 
       </tr>
-    <%# end %>
+    <% end %>
     </tbody>
 
   </table>
