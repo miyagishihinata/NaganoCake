@@ -35,7 +35,7 @@
 
         <div class="row mb-1">
           <label class="col-md-3 ml-2">商品合計</label>
-           <%= @total %>
+           <%= @total.to_s(:delimited) %>
         </div>
         <div class="row mb-1">
           <label class="col-md-3 ml-2">配送料</label>
@@ -67,13 +67,14 @@
         <%= order_detail.item.name %>
        </td>
        <td>
-        <%= order_detail.price %>
+        <%= order_detail.price.to_s(:delimited) %>
        </td>
        <td>
         <%= order_detail.amount %>
        </td>
        <td>
-        <%= order_detail.amount*order_detail.price %>
+        <% @total = order_detail.amount*order_detail.price %>
+        <%= @total.to_s(:delimited) %>
        </td>
 
       </tr>
