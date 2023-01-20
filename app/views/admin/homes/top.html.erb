@@ -25,9 +25,10 @@
          <%= order.customer.last_name %><%= order.customer.first_name %>
         </td>
         <td>
-         <% @order_details.each do |order_detail| %>
-           <%= order_detail.amount %>
+         <% order.order_details.each do |order_detail| %>
+           <%  @total += order_detail.amount %>
          <% end %>
+         <%= @total %>
         </td>
       </tr>
 
