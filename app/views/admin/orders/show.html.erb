@@ -69,14 +69,14 @@
             <%= order_detail.item.name %>
             </td>
             <td>
-            <%= order_detail.price.to_s(:delimited) %>
+            <%= order_detail.with_tax_price.to_s(:delimited) %>
             </td>
             <td>
             <%= order_detail.amount %>
             </td>
             <td>
-            <% @total = order_detail.amount*order_detail.price %>
-            <%= @total.to_s(:delimited) %>
+            <% @subtotal = order_detail.amount*order_detail.with_tax_price %>
+            <%= @subtotal.to_s(:delimited) %>
             </td>
             <td>
             <%#= f.collection_select :making_status, Genre.all, :id, :name, include_blank: "--選択して下さい--" %>
@@ -90,9 +90,6 @@
     <div class="col-4">
       <div class="form-group row">
         <label class="font-weight-bold col-md-4">商品合計</label>
-        <% @order.order_details.each do |order_detail| %>
-          <% @total += order_detail.price %>
-        <% end %>
         <%= @total.to_s(:delimited) %>円
       </div>
 
