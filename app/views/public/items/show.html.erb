@@ -1,14 +1,4 @@
 <div class="container">
-  <p id="notice"><%= flash[:notice] %></p>
-  <div class="container px-5 px-sm-0">
-    <% if @item.errors.any? %>
-      <h3><%= @item.errors.count %> errors prohibited this obj from being saved:</h3>
-      <ul>
-        <% @item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
 
   <div class="row mt-5">
 

@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def index
-    @orders = Order.all
-    @cart_items = CartItem.all
+    @orders = current_customer.orders
+
   end
 
   def new

@@ -1,6 +1,6 @@
 class Public::AddressesController < ApplicationController
   def index
-    @addresses = Address.all
+    @addresses = current_customer.addresses
     @address = Address.new
   end
 
@@ -15,7 +15,7 @@ class Public::AddressesController < ApplicationController
        @address.save
        redirect_to addresses_path
     else
-      render :index
+      render :index, status: :unprocessable_entity
     end
   end
 
