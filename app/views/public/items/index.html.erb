@@ -3,30 +3,39 @@
     <h3 class="mt-4 mb-2">商品一覧</h3>
     <h5 class="mt-4 mb-2">(全<%= @items.count %>件)</h5>
   </div>
+</div>
 
 
-  <div class="row">
-    <div class="col-12">
-    <% @items.each do |item| %>
-      <div class="form-group row">
+<div class="container">
+  <div class="row mt-3">
+  <% @items.each do |item| %>
+  <% if item.is_active == true %>
+    <div class="col-4 mb-5">
+     <%= link_to item_path(item.id) do %>
+       <%= image_tag item.get_image(300,300) %>
+     <% end %>
+    </div>
+
+    <div class="col-4">
+     <label class="mr-4 font-weight-bold">商品名</label>
       <%= link_to item_path(item.id) do %>
-        <%= image_tag item.get_image(200,200) %>
+        <%= item.name %><br>
       <% end %>
-      </div>
+      <label class="font-weight-bold">
+      ￥<%= item.with_tax_price.to_s(:delimited) %><br>
+      </label>
+    </div>
 
-      <div class="form-group row">
-        <label class="mr-4">商品名</label>
-        <%= item.name %>
-      </div>
+    <div class="col-4">
 
-      <div class="form-group row">
-        ￥<%= item.with_tax_price.to_s(:delimited) %>
-      </div>
+    </div>
+  <% end %>
+  <% end %>
+  </div>
+</div>
 
-      <div class="px-5 mx-auto col-10 col-sm-9">
-        <%= paginate @items %>
-      </div>
-    <% end %>
-　　</div>
+<div class="container">
+  <div class="col-12 offset-md-5 mb-3">
+    <%= paginate @items %>
   </div>
 </div>

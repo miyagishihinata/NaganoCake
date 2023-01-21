@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :edit, :show, :update]
     resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
     get '/' => 'homes#top'
   end
 
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :create, :index, :show]
+
+
 
   end
 

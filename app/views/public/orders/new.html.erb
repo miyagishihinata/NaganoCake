@@ -11,7 +11,7 @@
 
         <div class="form-group row ml-4">
           <div class="form-check form-check-inline">
-            <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+            <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
             <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card], class:"mt-1" %>
           </div>
         </div>
@@ -25,7 +25,7 @@
 
        <div class="ml-4">
          <div class="form-check form-check-inline">
-           <%= f.radio_button :select_address, 0 %>
+           <%= f.radio_button :select_address, 0, checked: true %>
            <%= f.label :address, "ご自身の住所", class: "mb-1" %>
          </div>
        </div>

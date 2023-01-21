@@ -35,12 +35,10 @@
 
       <div class="form-group row">
         <label class="font-weight-bold col-md-3">注文ステータス</label>
-        <%= @order.status_i18n %>
-        <%#= form_with model: order_details.each do |f| %>
-            <%#= f.hidden_field :order_id, :value => order_detail.order.id %>
-            <%#= f.select :status,  *[0..4] %>
-            <%#= f.submit "変更", class: "btn btn-success" %>
-        <%# end %>
+        <%= form_with model: @order, url: admin_order_path do |f| %>
+            <%= f.select :status, Order.statuses.keys.map{|k|[I18n.t("enums.order.status.#{k}"), k]}  %>
+            <%= f.submit "更新", class: "btn btn-success" %>
+        <% end %>
       </div>
 
     </div>
@@ -79,7 +77,10 @@
             <%= @subtotal.to_s(:delimited) %>
             </td>
             <td>
-            <%#= f.collection_select :making_status, Genre.all, :id, :name, include_blank: "--選択して下さい--" %>
+            <%= form_with model: order_detail, url: admin_order_detail_path(order_detail) do |f| %>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.map{|k|[I18n.t("enums.order_detail.making_status.#{k}"), k]}  %>
+              <%= f.submit "更新", class: "btn btn-success" %>
+            <% end %>
             </td>
           </tr>
         <% end %>
