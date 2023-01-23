@@ -1,24 +1,5 @@
-# README
+# nagano_cake
+This is an e-commerce site to sell the products of the confectionery store "NAGANO CAKE".
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Description
+The administrator of this site registers products. Members can order and purchase the registered products.
